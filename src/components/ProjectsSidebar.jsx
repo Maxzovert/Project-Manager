@@ -1,13 +1,14 @@
 import React from 'react'
+import Button from './Button'
 
-const ProjectsSidebar = () => {
+const ProjectsSidebar = ({onStartAdd}) => {
   return (
-    <aside>
-      <h2>YOur Projects</h2>
+    <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
+      <h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">YOur Projects</h2>
       <div>
-        <button>
+        <Button onClick={onStartAdd}>
             + Add Projects
-        </button>
+        </Button>
       </div>
       <ul></ul>
     </aside>
