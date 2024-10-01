@@ -1,6 +1,7 @@
 import React from 'react'
+import Tasks from './Tasks'
 
-const SelectedProject = ({project,onDel }) => {
+const SelectedProject = ({project,onDel, onAddTask , onDeleteTask , tasks}) => {
     const formattedDate = new Date(project.dueDate).toLocaleDateString('en-us' ,{
         year : 'numeric',
         month : 'short',
@@ -12,7 +13,7 @@ const SelectedProject = ({project,onDel }) => {
         <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-stone-950">{project.title}</h1>
         <button 
-            className="text-stone-600 hover:text-stone-950"
+            className="text-stone-600 hover:text-red-700"
             onClick={onDel}
             >
         Delete
@@ -21,7 +22,10 @@ const SelectedProject = ({project,onDel }) => {
         <p className="mb-4 text-stone-400">{formattedDate}</p>      
         <p className="text-stone-600 whitespace-pre-wrap">{project.description}</p>
       </header>
-      TASKs
+      <Tasks 
+      onAdd={onAddTask} 
+      onDelete={onDeleteTask} 
+      tasks={tasks}/>
     </div>
   )
 }
